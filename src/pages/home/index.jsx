@@ -6,10 +6,12 @@ import Slider from "react-slick";
 import { useNavigate } from "react-router-dom";
 import { addDoc, collection, getDocs } from "firebase/firestore/lite";
 import { db } from "../../firebase/firebase";
+import Loading from "../../features/loading";
 
 export default function Home() {
   const [data, setData] = useState({});
   const [newData, setNewData] = useState({});
+  const [loading, setLoading] = useState(false);
   const database = collection(db, "form");
 
   const nav = useNavigate();
@@ -64,8 +66,12 @@ export default function Home() {
 
   async function handleSubmit(event) {
     event.preventDefault();
+    setLoading(true);
     await addDoc(database, newData);
-    console.log("data berhasil di tambahkan");
+    setTimeout(() => {
+      setLoading(false);
+      window.location.href = "/";
+    }, 2500);
   }
 
   return (
@@ -225,12 +231,16 @@ export default function Home() {
               required
               onChange={handleChange}
             ></textarea>
-            <button className="cssbuttons-io-button" type="submit">
-              Kirim sekarang{" "}
-              <span className="icon">
-                <IconArrowRight />
-              </span>
-            </button>
+            {loading ? (
+              <Loading />
+            ) : (
+              <button className="cssbuttons-io-button" type="submit">
+                Kirim sekarang{" "}
+                <span className="icon">
+                  <IconArrowRight />
+                </span>
+              </button>
+            )}
           </form>
         </div>
       </div>
