@@ -1,0 +1,21 @@
+@media (min-width: 768px) {
+  .custom__scroll {
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+
+    &::-webkit-scrollbar {
+      height: 12px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: linear-gradient(135deg, #9955e8 0%, #7bffaf 100%);
+      border-radius: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: #f1f1f1; // Warna track (bagian latar belakang scroll bar)
+      border-radius: 6px; // Bentuk border radius track
+    }
+  }
+}

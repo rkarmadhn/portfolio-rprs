@@ -1,0 +1,24 @@
+{
+  "navigation": [
+    { "name": "beranda", "url": "/" },
+    { "name": "profile", "url": "/" },
+    { "name": "project", "url": "/" },
+    { "name": "resume", "url": "/resume" },
+    { "name": "contact", "url": "/" }
+  ],
+  "iconTools": [
+    { "name": "html-5 icon", "url": "icons8-html-5" },
+    { "name": "css icon", "url": "icons8-css" },
+    { "name": "javascript icon", "url": "icons8-javascript" },
+    { "name": "sass icon", "url": "icons8-sass" },
+    { "name": "bootstrap icon", "url": "icons8-bootstrap" },
+    { "name": "tailwind-css icon", "url": "icons8-tailwind-css" },
+    { "name": "react icon", "url": "icons8-react" },
+    { "name": "vite icon", "url": "icons8-vite" },
+    { "name": "git icon", "url": "icons8-git" }
+  ],
+  "iconContact": [
+    { "name": "github icon", "url": "icons8-github" },
+    { "name": "instagram icon", "url": "icons8-instagram" }
+  ]
+}
