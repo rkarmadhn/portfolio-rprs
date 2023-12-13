@@ -1,10 +1,10 @@
 {
   "navigation": [
     { "name": "beranda", "url": "/" },
-    { "name": "profile", "url": "/" },
-    { "name": "project", "url": "/" },
+    { "name": "profile", "url": "/#profile" },
+    { "name": "project", "url": "/#project" },
     { "name": "resume", "url": "/resume" },
-    { "name": "contact", "url": "/" }
+    { "name": "contact", "url": "#contact" }
   ],
   "iconTools": [
     { "name": "html-5 icon", "url": "icons8-html-5" },
@@ -18,7 +18,15 @@
     { "name": "git icon", "url": "icons8-git" }
   ],
   "iconContact": [
-    { "name": "github icon", "url": "icons8-github" },
-    { "name": "instagram icon", "url": "icons8-instagram" }
+    {
+      "name": "github icon",
+      "url": "https://github.com/rkarmadhn",
+      "svg": "icons8-github"
+    },
+    {
+      "name": "instagram icon",
+      "url": "https://www.instagram.com/rkarmadhn/",
+      "svg": "icons8-instagram"
+    }
   ]
 }

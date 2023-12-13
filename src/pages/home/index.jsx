@@ -3,10 +3,11 @@ import { IconArrowRight, IconBadge, IconFileFilled } from "@tabler/icons-react";
 import jsonData from "../../data/data.json";
 import CardProject from "../../components/card/cardProject";
 import Slider from "react-slick";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { addDoc, collection, getDocs } from "firebase/firestore/lite";
 import { db } from "../../firebase/firebase";
 import Loading from "../../features/loading";
+import { IconDownload } from "@tabler/icons-react";
 
 export default function Home() {
   const [data, setData] = useState({});
@@ -88,12 +89,26 @@ export default function Home() {
             Seorang Junior Front End Web Developer dengan semangat tinggi untuk
             menciptakan pengalaman pengguna yang menakjubkan.
           </p>
-          <button className="cssbuttons-io-button">
-            Resume saya
-            <span className="icon" onClick={toResume}>
-              <IconArrowRight />
-            </span>{" "}
-          </button>
+          <div className="flex items-center gap-2">
+            <button className="cssbuttons-io-button">
+              Resume saya
+              <span className="icon" onClick={toResume}>
+                <IconArrowRight />
+              </span>{" "}
+            </button>
+            <a
+              href="cv-rakha-putra-ramadhan-syahlan.pdf"
+              download={"CV Rakha Putra Ramadhan Syahlan"}
+              target="_blank"
+              rel="noreferrer"
+              className="h-fit text-white rounded-full p-2 my-auto"
+              style={{
+                background: "linear-gradient(135deg, #9955e8 0%, #7bffaf 100%)",
+              }}
+            >
+              <IconDownload />
+            </a>
+          </div>
         </div>
         <div className="md:flex-1">
           <img
@@ -115,7 +130,7 @@ export default function Home() {
               className="w-full object-cover aspect-square m-auto"
             />
           </div>
-          <div>
+          <div id="profile">
             <div className="flex overflow-x-scroll gap-2 mb-4 py-4 custom__scroll">
               {jsonData.iconTools.map((icon, i) => (
                 <img
@@ -135,16 +150,10 @@ export default function Home() {
               memiliki hasrat untuk menciptakan pengalaman pengguna yang menarik
               dan responsif di dunia web.
             </p>
-            <button className="cssbuttons-io-button">
-              Tentang saya{" "}
-              <span className="icon">
-                <IconArrowRight />
-              </span>
-            </button>
           </div>
         </div>
       </div>
-      <div className="p-6 sm:p-12">
+      <div className="p-6 sm:p-12" id="project">
         <div className="mb-8 text-center">
           <p className="text--linear">Pengalaman proyek</p>
           <h5 className="text-2xl font-medium">Proyek yang telah saya buat</h5>
@@ -164,7 +173,7 @@ export default function Home() {
           </div>
         </Slider>
       </div>
-      <div className="sm:p-12 mb-4">
+      <div className="sm:p-12 mb-4" id="contact">
         <div
           className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-12 sm:rounded-3xl p-6"
           style={{ backgroundColor: "#eee" }}
@@ -192,11 +201,13 @@ export default function Home() {
                     key={i}
                     className="bg-gray-300 hover:bg-gray-400 transition-all duration-500 rounded-2xl cursor-pointer p-2"
                   >
-                    <img
-                      src={`${icon.url}.svg`}
-                      alt={icon.name}
-                      className="w-8 aspect-square"
-                    />
+                    <a href={icon.url}>
+                      <img
+                        src={`${icon.svg}.svg`}
+                        alt={icon.name}
+                        className="w-8 aspect-square"
+                      />
+                    </a>
                   </div>
                 ))}
               </div>
